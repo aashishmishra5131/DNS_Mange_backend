@@ -24,6 +24,10 @@ const DNSRecordSchema = new Schema({
     type: Number,
     default: null 
   },
+  userId:{
+    type:Schema.Types.ObjectId,
+    ref:"User"
+  },
   createdAt: {
     type: Date,
     default: Date.now

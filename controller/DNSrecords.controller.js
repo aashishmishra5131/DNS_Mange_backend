@@ -3,13 +3,15 @@ const DNSRecord = require('../model/DNSrecords.model.js');
 
 exports.createDNSRecord = async (req, res) => {
     try {
+        const userId=req.user.id;
         const { type, name, value, ttl, priority } = req.body;
         const newDNSRecord = new DNSRecord({
             type,
             name,
             value,
             ttl,
-            priority
+            priority,
+            userId
         });
 
         await newDNSRecord.save();
